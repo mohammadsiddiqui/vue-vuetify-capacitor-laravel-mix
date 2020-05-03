@@ -4,17 +4,35 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build"
+    "build": "vue-cli-service build",
+    "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "watch": "npm run development -- --watch",
+    "prod": "npm run production",
+    "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
   },
   "dependencies": {
+    "@capacitor/android": "^2.0.2",
+    "@capacitor/cli": "^2.0.2",
+    "@capacitor/core": "^2.0.2",
+    "axios": "^0.19.2",
+    "babel-polyfill": "^6.26.0",
+    "cross-env": "^7.0.2",
+    "laravel-mix": "^5.0.4",
     "vue": "^2.6.11",
+    "vue-loading-overlay": "^3.3.2",
     "vue-router": "^3.1.6",
+    "vuetify": "^2.2.11",
     "vuex": "^3.1.3"
   },
   "devDependencies": {
+    "@babel/preset-env": "^7.9.6",
     "@vue/cli-plugin-router": "~4.3.0",
     "@vue/cli-plugin-vuex": "~4.3.0",
     "@vue/cli-service": "~4.3.0",
-    "vue-template-compiler": "^2.6.11"
+    "sass": "^1.19.0",
+    "sass-loader": "^8.0.0",
+    "vue-cli-plugin-vuetify": "~2.0.5",
+    "vue-template-compiler": "^2.6.11",
+    "vuetify-loader": "^1.3.0"
   }
 }

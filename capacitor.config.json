@@ -1,0 +1,8 @@
+{
+  "appId": "com.newapp.test",
+  "appName": "newapp",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www",
+  "cordova": {}
+}

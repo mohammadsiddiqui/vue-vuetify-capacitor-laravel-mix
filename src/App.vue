@@ -1,32 +1,54 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
-  </div>
+  <v-app>
+    <v-toolbar color="primary" dark style="position:fixed; width:100%; z-index:9">
+      <v-btn
+        transition="scale-transition"
+        class="mr-2"
+        text
+        large
+        v-if="showBack"
+        @click="$router.go(-1)"
+      >
+        <v-icon left large dark>mdi-chevron-left</v-icon>Back
+      </v-btn>
+      <v-toolbar-title v-else>
+        <strong>Siddiquipro</strong>
+      </v-toolbar-title>
+      <v-spacer></v-spacer>
+      <v-btn icon text>
+        <v-icon>mdi-star</v-icon>
+      </v-btn>
+    </v-toolbar>
+
+    <v-content style="padding-top:64px;">
+      <router-view></router-view>
+    </v-content>
+  </v-app>
 </template>
 
+<script>
+export default {
+  name: "App",
+  computed: {
+    showBack() {
+      return this.$route.path != "/";
+    }
+  },
+  data: () => ({
+    bottomNav: "recent"
+  })
+};
+</script>
+
+
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+body,
+.v-content,
+.application,
+.container {
+  background-color: #eaeeee;
 }
-
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+.swal2-container {
+  font-family: "Roboto";
 }
 </style>
